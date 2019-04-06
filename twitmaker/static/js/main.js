@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(response);
       console.log(tweet);
       let li = document.createElement('li');
-      let ol = document.querySelector('body > main > ol');
+      let ol = document.querySelector('ol');
       let p = document.createElement('p');
       let time = document.createElement('time');
-      let messageInput = document.querySelector('body > main > form');
+      let messageInput = document.querySelector('form');
       li.classList.add('tweet');
       p.innerHTML = tweet.message;
       time.innerHTML = tweet.created_at;
