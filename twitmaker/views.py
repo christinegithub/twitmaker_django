@@ -14,7 +14,10 @@ def create_tweet(request):
     tweet = form.instance
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect('/')
+        newTweet = Tweet.objects.get(pk=tweet.id)
+        context = {'message': newTweet.message, 'created_at': newTweet.created_at}
+        response = render(request, 'index.html', context)
+        return JsonResponse(context)
     else:
         context = {'tweets': Tweet.objects.all(), 'form': form}
         return render(request, 'index.html', context)
